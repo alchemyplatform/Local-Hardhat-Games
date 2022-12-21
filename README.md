@@ -65,25 +65,30 @@ Try each game! See if you can emit the Winner event on each one. Remember to:
 4. Change the `contractName` in `scripts/win.js`
 5. Modify the win script to succesfully complete the challenge. You may need to run multiple transactions in order to win each game!
 
-## Common Troubleshooting
+# Troubleshooting
+
+## Common Errors
 
 1. **Gas Estimation Error** - if you see a gas estimation error, this means that the blockchain node was unable to estimate the gas. The reason for this is often because the transaction reverted! 
-2. `game.[method]` is not a function
-3. 
+2. **`game.[method]` is not a function** - this typically happens because you forgot to change the contract name. More technically, there's function that you think should exist on the contract, but hardhat is not able to call it because the ABI it fetched from the `artifacts` folder does not have that method defined.
 
 ## Use Hardhat Console Log
 
 Are you stuck on a particular challenge? You can use `console.log` from Hardhat! To do so, simply import it into your contract (before you deploy it):
 
-```sol 
-//SPDX-License-Identifier: Unlicense
+```solidity
 pragma solidity ^0.8.17;
+
+import "hardhat/console.sol";
 
 contract Game1 {
   event Winner(address winner);
 
   function win() public {
+    console.log(22);
     emit Winner(msg.sender);
   }
 }
 ```
+
+Now when you call `win` on `Game1` you will see `22` show up in your local hardhat node. This will happen even if the transaction reverts!
