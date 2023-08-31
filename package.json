@@ -1,14 +1,15 @@
 {
   "name": "local-hardhat-games",
   "version": "1.0.0",
-  "description": "",
+  "description": "Let's work on our solidity skills while deploying against a local hardhat blockchain! Inside this repository you'll find 5 smart contracts labled `Game1` to `Game5`. The goal of each smart contract is to:",
   "main": "index.js",
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "hardhat": "^2.12.4"
-  },
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^2.0.0"
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "hardhat": "^2.17.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
